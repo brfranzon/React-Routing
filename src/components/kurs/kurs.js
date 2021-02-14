@@ -1,27 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import data from '../../data';
 
-import {Link} from 'react-router-dom'; 
+import { Link, useRouteMatch } from 'react-router-dom';
 
 
 function Kurs(props) {
 
-    console.log('data', data);
+    const match = useRouteMatch();
+
+    useEffect(
+        () => {
+                console.log(match);
+        },
+        [match]
+    );
 
     return (
         <div>
             <h1> Kurse </h1>
             <ul>
                 {
-                data.map(
+                    data.map(
 
-                    item =>
-                    <li key={item.id}> 
-                        <Link to = {`/kurs/${item.id}`}>
-                            {item.type} 
-                        </Link>
-                    </li> 
-                )
+                        kurs =>
+                            <li key={kurs.id}>
+                                <Link to={`${match.url}/${kurs.id}`}>
+                                    {kurs.type}
+                                </Link>
+                            </li>
+                    )
                 }
             </ul>
         </div>

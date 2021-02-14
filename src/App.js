@@ -25,9 +25,9 @@ function App() {
             <Home />
           </Route>
 
-          <Route exact path="/kurs" component={Kurs} />
+          <Route exact path="/kurse" component={Kurs} />
 
-          <Route exact path="/kurs/:id">
+          <Route exact path="/kurse/:id">
             <KursDetail />
           </Route>
 
